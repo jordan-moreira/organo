@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const CampoTextoConteiner = styled.div`
@@ -20,10 +21,19 @@ const CampoTextoConteiner = styled.div`
 `;
 
 const CampoTexto = (props) => {
+  const aoDigitado = (event) => {
+    props.aoAlterado(event.target.value);
+  };
+
   return (
     <CampoTextoConteiner>
       <label>{props.label}</label>
-      <input placeholder={props.placeholder} />
+      <input
+        value={props.valor}
+        onChange={aoDigitado}
+        required={props.obrigatorio}
+        placeholder={props.placeholder}
+      />
     </CampoTextoConteiner>
   );
 };

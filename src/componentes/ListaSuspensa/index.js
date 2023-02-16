@@ -14,13 +14,18 @@ const ListaContainer = styled.div`
     font-size: 24px;
     padding: 24px;
     box-sizing: border-box;
-  }
+
 `;
 const ListaSuspensa = (props) => {
   return (
     <ListaContainer>
       <label>{props.label}</label>
-      <select>
+
+      <select
+        onChange={(event) => props.aoAlterado(event.target.value)}
+        required={props.obrigatorio}
+        valor={props.valor}
+      >
         {props.itens.map((item) => (
           <option key={item}>{item}</option>
         ))}
