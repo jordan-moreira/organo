@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+
 import Botao from "../Botao";
 import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
@@ -18,42 +19,26 @@ const Section = styled.section`
   }
 `;
 
-const Formulario = () => {
-  const esportes = [
-    "100m rasos",
-    "200m rasos",
-    "400m rasos",
-    "800m rasos",
-    "1500m rasos",
-    "5000m rasos",
-    "10.000m rasos",
-    "3000m com obstáculos",
-    "110m com barreiras",
-    "100m com barreiras",
-    "Revezamento 4x100m",
-    "Revezamento 4x400m",
-    "Marcha atlética de 20 km",
-    "Marcha atlética de 50 km",
-    "Salto em altura",
-    "Salto em distância",
-    "Salto triplo",
-    "Salto com vara",
-    "Arremesso de peso",
-    "Lançamento de disco",
-    "Lançamento de martelo",
-    "Lançamento de dardo",
-    "Decatlo",
-    "Heptatlo",
-  ];
+const Formulario = (props) => {
+  const esportes = props.esportes;
 
   const [nome, setNome] = useState("");
-  const [cla, setCla] = useState("");
+  const [cidade, setCidade] = useState("");
   const [imagem, setImagem] = useState("");
   const [esporte, setEsporte] = useState("");
 
   const aoSalvar = (event) => {
     event.preventDefault();
-    console.log("Form submetido", nome, cla, imagem, esporte);
+    props.aoAtletaCadastrado({
+      nome,
+      cidade,
+      imagem,
+      esporte,
+    });
+    setNome("");
+    setCidade("");
+    setImagem("");
+    setEsporte("");
   };
 
   return (
@@ -70,10 +55,10 @@ const Formulario = () => {
 
         <CampoTexto
           obrigatorio={true}
-          label="Clã"
-          placeholder="Digite seu clã"
-          valor={cla}
-          aoAlterado={(valor) => setCla(valor)}
+          label="Cidade"
+          placeholder="Digite o nome da sua cidade"
+          valor={cidade}
+          aoAlterado={(valor) => setCidade(valor)}
         />
 
         <CampoTexto
@@ -86,7 +71,7 @@ const Formulario = () => {
         <ListaSuspensa
           obrigatorio={true}
           label="Esporte"
-          itens={esportes}
+          esportes={esportes}
           valor={esporte}
           aoAlterado={(valor) => setEsporte(valor)}
         />

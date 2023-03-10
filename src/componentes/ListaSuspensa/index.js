@@ -14,7 +14,7 @@ const ListaContainer = styled.div`
     font-size: 24px;
     padding: 24px;
     box-sizing: border-box;
-
+  }
 `;
 const ListaSuspensa = (props) => {
   return (
@@ -26,8 +26,9 @@ const ListaSuspensa = (props) => {
         required={props.obrigatorio}
         valor={props.valor}
       >
-        {props.itens.map((item) => (
-          <option key={item}>{item}</option>
+        <option key="vazia">Selecione um esporte</option>
+        {props.esportes.map((esporteNome) => (
+          <option key={esporteNome}>{esporteNome}</option>
         ))}
       </select>
     </ListaContainer>
