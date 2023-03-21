@@ -24,9 +24,9 @@ const ListaSuspensa = (props) => {
       <select
         onChange={(event) => props.aoAlterado(event.target.value)}
         required={props.obrigatorio}
-        valor={props.valor}
+        value={props.valor}
       >
-        <option key="vazia">Selecione um esporte</option>
+        <option value="">Selecione um esporte</option>
         {props.esportes.map((esporteNome) => (
           <option key={esporteNome}>{esporteNome}</option>
         ))}

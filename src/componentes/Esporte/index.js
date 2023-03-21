@@ -19,18 +19,19 @@ const EsporteContainer = styled.section`
   }
 `;
 
-const Esporte = ({ key, nome, corSublinhado, corDeFundo, atletas }) => {
-  const cssContainer = { backgroundColor: corDeFundo };
-  const cssH3 = { borderColor: corSublinhado };
-  console.log("o que tem dentro", atletas);
+const Esporte = ({ nome, corPrimaria, corSecundaria, atletas }) => {
+  const cssContainer = { backgroundColor: corSecundaria };
+  const cssH3 = { borderColor: corPrimaria };
 
   return atletas.length > 0 ? (
-    <EsporteContainer style={cssContainer} key={key}>
+    <EsporteContainer style={cssContainer}>
       <h3 style={cssH3}>{nome}</h3>
       <div className="atletas">
         {atletas.map((infoAtleta) => {
           return (
             <Atleta
+              key={infoAtleta.nome}
+              corDeFundo={corPrimaria}
               nome={infoAtleta.nome}
               cidade={infoAtleta.cidade}
               imagem={infoAtleta.imagem}
@@ -46,8 +47,3 @@ const Esporte = ({ key, nome, corSublinhado, corDeFundo, atletas }) => {
 };
 
 export default Esporte;
-
-// atletas.map((infoAtleta) => (
-//   <Atleta
-//
-//   />

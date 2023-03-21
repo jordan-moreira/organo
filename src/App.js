@@ -7,129 +7,128 @@ function App() {
   const esportesLista = [
     {
       nome: "100m rasos",
-      corSublinhado: "#FF0000",
-      corDeFundo: "#FF9999",
+      corPrimaria: "#FF0000",
+      corSecundaria: "#FF9999",
     },
     {
       nome: "200m rasos",
-      corSublinhado: "#FFA500",
-      corDeFundo: "#ffb253",
+      corPrimaria: "#FFA500",
+      corSecundaria: "#ffb253",
     },
     {
       nome: "400m rasos",
-      corSublinhado: "#FFFF00",
-      corDeFundo: "#FFFFCC",
+      corPrimaria: "#FFFF00",
+      corSecundaria: "#FFFFCC",
     },
     {
       nome: "800m rasos",
-      corSublinhado: "#008000",
-      corDeFundo: "#BDFCC9",
+      corPrimaria: "#008000",
+      corSecundaria: "#BDFCC9",
     },
     {
       nome: "1500m rasos",
-      corSublinhado: "#00FF7F",
-      corDeFundo: "#D8FFDA",
+      corPrimaria: "#00FF7F",
+      corSecundaria: "#D8FFDA",
     },
     {
       nome: "5000m rasos",
-      corSublinhado: "#006400",
-      corDeFundo: "#B3DAB3",
+      corPrimaria: "#006400",
+      corSecundaria: "#B3DAB3",
     },
     {
       nome: "10.000m rasos",
-      corSublinhado: "#008080",
-      corDeFundo: "#B3FFFF",
+      corPrimaria: "#008080",
+      corSecundaria: "#B3FFFF",
     },
     {
       nome: "3000m com obstáculos",
-      corSublinhado: "#000082",
-      corDeFundo: "#B3B4FF",
+      corPrimaria: "#000082",
+      corSecundaria: "#B3B4FF",
     },
     {
       nome: "110m com barreiras",
-      corSublinhado: "#800083",
-      corDeFundo: "#E6B4E8",
+      corPrimaria: "#800083",
+      corSecundaria: "#E6B4E8",
     },
     {
       nome: "100m com barreiras",
-      corSublinhado: "#4B0084",
-      corDeFundo: "#CC89FF",
+      corPrimaria: "#4B0084",
+      corSecundaria: "#CC89FF",
     },
     {
       nome: "Revezamento 4x100m",
-      corSublinhado: "#FFC0CB",
-      corDeFundo: "#FFE6EA",
+      corPrimaria: "#FFC0CB",
+      corSecundaria: "#FFE6EA",
     },
     {
       nome: "Revezamento 4x400m",
-      corSublinhado: "#FF69B4",
-      corDeFundo: "#FFD6E5",
+      corPrimaria: "#FF69B4",
+      corSecundaria: "#FFD6E5",
     },
     {
       nome: "Marcha atlética de 20 km",
-      corSublinhado: "#FFD700",
-      corDeFundo: "#FFF8DC",
+      corPrimaria: "#FFD700",
+      corSecundaria: "#FFF8DC",
     },
     {
       nome: "Marcha atlética de 50 km",
-      corSublinhado: "#FFA07A",
-      corDeFundo: "#FFE4E1",
+      corPrimaria: "#FFA07A",
+      corSecundaria: "#FFE4E1",
     },
     {
       nome: "Salto em altura",
-      corSublinhado: "#800003",
-      corDeFundo: "#CC9999",
+      corPrimaria: "#800003",
+      corSecundaria: "#CC9999",
     },
     {
       nome: "Salto em distância",
-      corSublinhado: "#FF8C00",
-      corDeFundo: "#ffb252",
+      corPrimaria: "#FF8C00",
+      corSecundaria: "#ffb252",
     },
     {
       nome: "Salto triplo",
-      corSublinhado: "#483D8B",
-      corDeFundo: "#B0A9CF",
+      corPrimaria: "#483D8B",
+      corSecundaria: "#B0A9CF",
     },
     {
       nome: "Salto com vara",
-      corSublinhado: "#9400D5",
-      corDeFundo: "#E6E8FA",
+      corPrimaria: "#9400D5",
+      corSecundaria: "#E6E8FA",
     },
     {
       nome: "Arremesso de peso",
-      corSublinhado: "#008001",
-      corDeFundo: "#BDFCC9",
+      corPrimaria: "#008001",
+      corSecundaria: "#BDFCC9",
     },
     {
       nome: "Lançamento de disco",
-      corSublinhado: "#000082",
-      corDeFundo: "#4",
+      corPrimaria: "#000082",
+      corSecundaria: "#4",
     },
     {
       nome: "Lançamento de martelo",
-      corSublinhado: "#800083",
-      corDeFundo: "#E6B4E8",
+      corPrimaria: "#800083",
+      corSecundaria: "#E6B4E8",
     },
     {
       nome: "Lançamento de dardo",
-      corSublinhado: "#4B0084",
-      corDeFundo: "#CC89FF",
+      corPrimaria: "#4B0084",
+      corSecundaria: "#CC89FF",
     },
     {
       nome: "Decatlo",
-      corSublinhado: "#800003",
-      corDeFundo: "#CC9999",
+      corPrimaria: "#800003",
+      corSecundaria: "#CC9999",
     },
     {
       nome: "Heptatlo",
-      corSublinhado: "#9400D5",
-      corDeFundo: "#E6E8FA",
+      corPrimaria: "#9400D5",
+      corSecundaria: "#E6E8FA",
     },
   ];
   const [atletas, setAtleta] = useState([]);
 
   const aoNovoAtletaAdicionado = (infoAtleta) => {
-    console.log(infoAtleta);
     setAtleta([...atletas, infoAtleta]);
   };
   return (
@@ -140,20 +139,18 @@ function App() {
         aoAtletaCadastrado={(infoAtleta) => aoNovoAtletaAdicionado(infoAtleta)}
       />
       {esportesLista.map((esporte) => {
-        console.log(esporte);
         return (
           <Esporte
             key={esporte.nome}
             nome={esporte.nome}
-            corSublinhado={esporte.corSublinhado}
-            corDeFundo={esporte.corDeFundo}
+            corPrimaria={esporte.corPrimaria}
+            corSecundaria={esporte.corSecundaria}
             atletas={atletas.filter(
               (atleta) => atleta.esporte === esporte.nome
             )}
           />
         );
       })}
-      {console.log("tipo", typeof atletas)}
     </div>
   );
 }
